@@ -22,7 +22,7 @@ operatorul bancii sa introduca datele pentru crearea contului.(trebuie ca aceast
     Trebuie cautat contul intordus iar daca exista se poate vizualiza
     Daca nu exista putem incepe o procedura de creare cont
 
-    3. Un sistem in care putem sa salvam datele acestea intr - un fisier local(CSV file)*/
+    3. Un sistem in care putem sa salvam datele acestea intr - un fisier local(CSV file) */
 
 int main()
 {
@@ -45,6 +45,8 @@ int main()
         {
         case 1:
             std::cout << "Ati ales optiunea 1\n";
+            std::cout << "Numarul total de conturi este: "
+                << manager.GetNumarConturi() << std::endl;
             break;
         case 2:
             std::cout << "Ati ales optiunea 2\n";
@@ -62,6 +64,8 @@ int main()
             break;
         case 6:
             std::cout << "Ati ales optiunea 6\n";
+            system("cls");
+            manager.printAllConturi();
             break;
         case 0:
             std::cout << "Multumim. La revedere\n";

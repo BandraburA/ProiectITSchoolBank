@@ -2,14 +2,21 @@
 #include"ContBancar.h"
 #include<vector>
 #include<iostream>
+#include "FileManager.h"
 class ManagerConturi
 {
 private:
 	std::vector<ContBancar*> m_listaConturi;
-	//TODO: Metoda CreateIban trebuie sa genereze un iban unic care sa fie folosit pentru a crea conturi
 	std::string CreateIban();
+	FileManager* m_fileManager;
 public:
 	void adaugareCont();
 
+	int GetNumarConturi(); 
+
+	void printAllConturi();
+
+	ManagerConturi();
+	~ManagerConturi();
 };
 
