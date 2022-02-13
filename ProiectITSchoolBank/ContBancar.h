@@ -12,6 +12,7 @@ class ContBancar
 	std::string m_nume;
 	std::string m_prenume;
 	float m_sold;
+	//format: RO44ItSchool(caractere alfa numerice - 5)
 	std::string m_IBAN;
 	TipMoneda m_tipSold;
 public:
@@ -21,5 +22,7 @@ public:
 	std::string getPrenume() const;
 	std::string getIban() const;
 	float getSold() const;
+
+	void manipulareSold(float suma);
 };
 

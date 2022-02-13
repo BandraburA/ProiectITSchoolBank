@@ -1,12 +1,13 @@
 #include "FileManager.h"
- void FileManager::WriteToCSV(std:: string nume, std::string prenume, std::string iban)
+
+
+ void FileManager::WriteToCSV(std:: string nume, std::string prenume, std::string iban, float sold)
 {
 	std::fstream csv_file;
 	csv_file.open("ConturiDataBase.csv", std::ios::out | std::ios::app);
 	if (csv_file.is_open())
 	{
-		csv_file << nume << ',' << prenume << ',' << iban << '\n';
-
+		csv_file << nume << ',' << prenume << ',' << iban << ',' << sold << '\n';
 	}
 	else
 	{
@@ -16,12 +17,12 @@
 }
  std::vector<ContBancar*> FileManager::ReadContBancarFromCSV()
  {
-	 std::fstream fileInput;
-	 fileInput.open("ConturiDatabase.csv", std::ios::in);
+	 std::fstream fileInput("ConturiDataBase.csv");
+	 //fileInput.open("ConturiDatabase.csv", std::ios::in);
 	 std::vector<ContBancar*> conturiDinCsv;
 	 std::vector<std::string> randuri;
 	 std::string linie;
-	 if (fileInput.is_open())
+	 if (!fileInput.is_open())
 	 {
 		 std::cout << "Error file cannot be accesed\n";
 	 }
@@ -46,7 +47,7 @@
 			 cuvinte.push_back(cuvant);
 		 }
 		 if (!cuvinte.empty()) {
-			 ContBancar* cont = new ContBancar(cuvinte[0], cuvinte[1], cuvinte[2]); // todo: mai un constructor pentru sold
+			 ContBancar* cont = new ContBancar(cuvinte[0], cuvinte[1], cuvinte[2]); // todo: mai un constructor pentru sold pentru ContBancar
 			 conturiDinCsv.push_back(cont);
 		 }
 

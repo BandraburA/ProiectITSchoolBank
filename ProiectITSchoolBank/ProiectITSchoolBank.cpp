@@ -24,6 +24,12 @@ operatorul bancii sa introduca datele pentru crearea contului.(trebuie ca aceast
 
     3. Un sistem in care putem sa salvam datele acestea intr - un fisier local(CSV file) */
 
+//todo: la optiunea Modificare Cont, schimbarea in cauza trebuie sa fie reflectata si in .csv
+// todo: la optiunea Stergere cont dupa ce este sters din m_lista_Conturi trebuie sters si din .csv
+// todo: un sistem de user si parola ca sa asiguram operatorul poate sa lucreze pe statia respectiva
+//todo: la optiunea Eliberare/depunere modificarile sa fie reflectate si in .csv
+
+
 int main()
 {
     ManagerConturi manager;
@@ -41,6 +47,7 @@ int main()
 
         std::cout << "Introduceti operatia pe care o doriti:\n";
         std::cin >> optiune;
+
         switch (optiune)
         {
         case 1:
@@ -58,9 +65,12 @@ int main()
             break;
         case 4:
             std::cout << "Ati ales optiunea 4\n";
+            manager.EraseAccount();
+
             break;
         case 5:
             std::cout << "Ati ales optiunea 5\n";
+            manager.Eliberare_Depunere();
             break;
         case 6:
             std::cout << "Ati ales optiunea 6\n";
